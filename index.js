@@ -2,8 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-const uri =
-	"mongodb+srv://matthewmjm_prod:<password>@cluster0.aedqk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const uri = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_CLUSTER}.hj6fb.mongodb.net/${process.env.MONGO_DB_NAME}?retryWrites=true&w=majority`;
 
 const app = express();
 const port = process.env.PORT || 4000;
