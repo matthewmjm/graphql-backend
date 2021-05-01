@@ -21,10 +21,20 @@ const typeDefs = `
 
 	type Flower {
 		_id: ID!
-		kind: String
+		kind: String!
 		petals: Int
 	}
 `;
+
+const FlowerSchema = new mongoose.Schema({
+	kind: {
+		type: String,
+		required: true,
+	},
+	petals: Number,
+});
+
+const Flower = mongoose.model("Flower", FlowerSchema);
 
 const resolvers = {
 	Query: {
