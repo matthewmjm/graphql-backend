@@ -7,4 +7,9 @@ const uri = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PAS
 const app = express();
 const port = process.env.PORT || 4000;
 
+mongoose
+	.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+	.then(() => console.log("MongoDB connected!!"))
+	.catch((error) => console.error(error));
+
 app.listen(port, () => console.log(`listening on port ${port}`));
