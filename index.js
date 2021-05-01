@@ -36,9 +36,15 @@ const FlowerSchema = new mongoose.Schema({
 
 const Flower = mongoose.model("Flower", FlowerSchema);
 
+// const resolvers = {
+// 	Query: {
+// 		flowers: () => [{ _id: 1, kind: "cool", petals: 100 }],
+// 	},
+// };
+
 const resolvers = {
 	Query: {
-		flowers: () => [{ _id: 1, kind: "cool", petals: 100 }],
+		flowers: async () => await Flower.find(),
 	},
 };
 
